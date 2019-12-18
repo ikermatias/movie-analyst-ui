@@ -19,7 +19,7 @@ node {
   stage "Push image"
     dockerImage = docker.build("ikermatias/movieapp")
     docker.withRegistry('', registryCredential){
-    dockerImage.push()
+    dockerImage.push("latest")
     }
     
 }
