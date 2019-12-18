@@ -2,7 +2,7 @@
 
 node {
 
-  enviroment {
+  environment {
     registry = "ikermatias/movieapp"
     registryCredential = 'dockerhub'
   }
