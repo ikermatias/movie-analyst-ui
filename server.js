@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // Declare our dependencies
 var express = require('express');
 var request = require('superagent');
@@ -74,4 +76,4 @@ app.get('/pending', function(req, res){
     })
 })
 
-app.listen(3030);
+module.exports = app.listen(3030);
