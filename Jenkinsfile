@@ -12,7 +12,6 @@ node {
   stage "Checkout Git repo"
     checkout scm
   stage "Run tests"
-    sh "whoami"
     sh "docker run -v \$(pwd):/data --rm usemtech/nodejs-mocha npm install"
     sh "docker run -v \$(pwd):/data --rm usemtech/nodejs-mocha npm install chai chai-http"
     sh "docker run -v \$(pwd):/data --rm usemtech/nodejs-mocha npm test"
@@ -21,6 +20,9 @@ node {
     docker.withRegistry('', "dockerhub"){
     dockerImage.push("latest")
     }
+
+  stage "Trigger downstream" 
+    build job: "movie-CD", wait: false
 
     
 }
