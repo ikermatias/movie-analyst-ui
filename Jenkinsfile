@@ -18,7 +18,9 @@ node {
     sh "docker run -v \$(pwd):/data --rm usemtech/nodejs-mocha npm test"
   stage "Push image"
     dockerImage = docker.build("ikermatias/movieapp")
+    docker.withRegistry('', "3567c3dd-1691-499a-9975-2f450e97ad34"){
     dockerImage.push("latest")
+    }
 
     
 }
